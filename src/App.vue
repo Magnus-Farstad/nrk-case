@@ -1,11 +1,41 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <div class="logoContainer" @click="goHome">
+      <svg
+        class="logo"
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="614.4px"
+        height="220px"
+        viewBox="0 0 614.4 220"
+        enable-background="new 0 0 614.4 220"
+        xml:space="preserve"
+      >
+        <path
+          d="M532,220c0,0-49.9-80.6-57.1-92.9c-7.2-11-7.5-18.5-0.3-29.2c7.2-12,57.4-93.7,57.4-93.7h82.4l-60.7,99.2
+	c-4.3,6.4-4,11.5,0.5,18.3c0.7,1.3,60.2,98.4,60.2,98.4H532z M459.7,220h-74.5V4.2h74.5V220z M338.2,85.6
+	c-23.6,0-42.8-19.2-42.8-42.8c0-23.6,19.2-42.8,42.8-42.8c23.7,0,42.9,19.2,42.9,42.8C381.1,66.4,361.9,85.6,338.2,85.6 M290.4,220
+	h-74.7V4.2h74.7V220z M128.3,220L79.7,4.2h48.4c20.7,0,38.7,15,42.3,34.6L211.1,220H128.3z M75.4,220H0V4.2h75.4V220z"
+        />
+      </svg>
+    </div>
   </nav>
   <router-view />
 </template>
-
+<script>
+export default {
+  name: "App",
+  methods: {
+    goHome() {
+      this.$router.push({ name: "home" });
+    },
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -17,6 +47,8 @@
 
 nav {
   padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
@@ -26,5 +58,15 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.logoContainer {
+  width: 10rem;
+  cursor: pointer;
+}
+.logo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 </style>
